@@ -4,5 +4,5 @@ for i in range(0, 100):
         if i < n:
             if n > 1:
                 print(",", end=' ')
-            print("{}{}".format(i,n), end='')
+            print("{}{}".format(i, n), end='')
 print("")
