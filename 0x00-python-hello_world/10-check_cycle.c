@@ -10,14 +10,12 @@ int check_cycle(listint_t *list)
 	listint_t *loop1 = list;
 	listint_t *loop2 = list;
 
-	if (list == NULL)
-		return (0);
-	while (loop1 != NULL && loop2 != NULL)
+	while ((loop2 != NULL && loop2->next != NULL))
 	{
 		loop1 = loop1->next;
 		loop2 = loop2->next->next;
 
-		if ((long int)loop1 == (long int)loop2)
+		if (loop1 == loop2)
 			return (1);
 	}
 	return (0);
