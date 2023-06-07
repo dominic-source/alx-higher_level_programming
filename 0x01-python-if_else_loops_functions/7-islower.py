@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 def islower(c):
-    if c in 'abcdefghijklmnopqrstuvwxy':
+    if c == "":
+        raise ValueError
+    elif c in 'abcdefghijklmnopqrstuvwxy':
         return True
     else:
         return False
