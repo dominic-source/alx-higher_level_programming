@@ -7,6 +7,23 @@
  */
 int check_cycle(listint_t *list)
 {
+	listint_t *loop1 = list;
+	listint_t *loop2 = list;
+
+	while (loop1 != NULL && loop2 != NULL)
+	{
+		loop1 = loop1->next;
+		loop2 = loop2->next->next;
+
+		if ((long int)loop1 == (long int)loop2)
+			return (1);
+	}
+	return (0);
+}
+
+/*
+int c2heck2cycle2(listint_t *list)
+{
 	long *items;
 	size_t i;
 	int j;
@@ -37,3 +54,4 @@ int check_cycle(listint_t *list)
 	free(items);
 	return (0);
 }
+*/
