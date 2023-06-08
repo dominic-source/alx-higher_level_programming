@@ -2,7 +2,7 @@
 from calculator_1 import add, sub, mul, div
 
 
-def print_cal():
+def prin_cal():
     a = 10
     b = 5
     print("{} + {} = {}".format(a, b, add(a, b)))
@@ -12,4 +12,4 @@ def print_cal():
 
 
 if __name__ == '__main__':
-    print_cal()
+    prin_cal()
