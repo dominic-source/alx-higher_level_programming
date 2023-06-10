@@ -1,6 +1,5 @@
 #include "lists.h"
-#include <stdio.h>
-
+#include <limits.h>
 /**
  * is_palindrome - check if a singly list is a palindrome
  * @head: pointer to pointer to listint_t
@@ -10,7 +9,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *current;
 	listint_t *compare;
-	int i, j, count_c = 100;
+	int i, j, count_c = INT_MAX;
 
 	current = *head;
 	compare = *head;
