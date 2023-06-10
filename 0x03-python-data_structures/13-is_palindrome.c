@@ -9,7 +9,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *current;
 	listint_t *compare;
-	int i, j, count_c = 4096;
+	int i, j, count_c = 400;
 
 	current = *head;
 	compare = *head;
