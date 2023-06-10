@@ -21,9 +21,9 @@ int is_palindrome(listint_t **head)
 				count_c++;
 			current = current->next;
 		}
-		if (current == NULL)
+		if (!i)
 			count_c = j - 1;
-		if (current != NULL)
+		else if (current != NULL)
 		{
 			if (compare->n != current->n)
 				return (0);
