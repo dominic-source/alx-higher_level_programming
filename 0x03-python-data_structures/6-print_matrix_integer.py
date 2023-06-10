@@ -6,7 +6,7 @@ def print_matrix_integer(matrix=[[]]):
         for d, n in enumerate(i):
             if d != 0:
                 print(' ', end='')
-            print('{}'.format(n), end='')
+            print('{:d}'.format(n), end='')
         print('')
 
 
