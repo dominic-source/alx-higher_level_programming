@@ -22,15 +22,14 @@ int is_palindrome(listint_t **head)
 			current = current->next;
 		}
 		if (!i)
-                        count_c = j - 1;
-		if (current != NULL)
+			count_c = j - 1;
+		else if (current != NULL)
 		{
 			if (compare->n != current->n)
 				return (0);
 			count_c--;
 			compare = compare->next;
 		}
-
 	}
 
 	return (1);
