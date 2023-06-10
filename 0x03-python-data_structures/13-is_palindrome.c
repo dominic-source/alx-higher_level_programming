@@ -11,11 +11,7 @@ int is_palindrome(listint_t **head)
 	listint_t *compare;
 	int i, j, count_c = 1;
 
-	current = *head;
 	compare = *head;
-	if (current == NULL)
-		return (1);
-
 	for (i = 0; compare != NULL; i++)
 	{
 		current = *head;
