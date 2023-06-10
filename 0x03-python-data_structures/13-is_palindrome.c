@@ -9,7 +9,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *current;
 	listint_t *compare;
-	int i, j, count_c = 800;
+	int i, j, count_c = 1, help = 1;
 
 	current = *head;
 	compare = *head;
@@ -20,7 +20,12 @@ int is_palindrome(listint_t **head)
 	{
 		current = *head;
 		for (j = 0; (current != NULL && j < count_c); j++)
+		{
+			if (help)
+				count_c++;
 			current = current->next;
+		}
+		help = 0;
 		if (current == NULL)
 			count_c = j - 1;
 		if (current != NULL)
