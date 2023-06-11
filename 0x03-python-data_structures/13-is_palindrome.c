@@ -8,7 +8,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *current = *head;
 	listint_t *compare = *head;
-	int i, sum2 = 0, count_c = 0, sum = 0, count;
+	long int i, sum2 = 0, count_c = 0, sum = 0, count;
 
 	for (i = 0; compare != NULL; i++)
 	{
@@ -23,10 +23,9 @@ int is_palindrome(listint_t **head)
 		current = current->next;
 	}
 	if ((count_c % 2) != 0)
-		sum2 += current->n / 2;
-	if ((sum / 2) != sum2 && count_c != 2)
+		sum2 += (current->n) / 2;
+	if ((sum / 2) != sum2)
 		return (0);
-
 	return (1);
 }
 
