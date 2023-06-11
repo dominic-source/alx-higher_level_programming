@@ -8,7 +8,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *current = *head, *compare = *head;
 	unsigned int i, count_c = 0, count;
-	int sum2 = 0, sum = 0;
+	long int sum2 = 0, sum = 0;
 
 	for (i = 0; compare != NULL; i++)
 	{
