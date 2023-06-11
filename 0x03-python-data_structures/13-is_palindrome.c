@@ -24,7 +24,7 @@ int is_palindrome(listint_t **head)
 	}
 	if ((count_c % 2) != 0)
 		sum2 += current->n / 2;
-	if ((sum / 2) != sum2 || count_c == 1)
+	if ((sum / 2) != sum2)
 		return (0);
 
 	return (1);
