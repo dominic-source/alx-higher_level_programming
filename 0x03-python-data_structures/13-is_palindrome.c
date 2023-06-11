@@ -10,6 +10,8 @@ int is_palindrome(listint_t **head)
 	unsigned int i, count_c = 0, count;
 	int sum2 = 0, sum = 0;
 
+	if (compare == NULL)
+		return (1);
 	for (i = 0; compare != NULL; i++)
 	{
 		count_c++;
