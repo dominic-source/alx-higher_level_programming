@@ -7,6 +7,8 @@ def best_score(a_dictionary):
         for i, v in a_dictionary.items():
             if highest[0] < v:
                 highest = v, i
+            elif highest[0] is None:
+                return None
         return highest[1]
     else:
         return None
