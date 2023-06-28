@@ -9,6 +9,7 @@
       $ ./1-square.py
 """
 
+
 class Square:
     """create a private attribute
 
