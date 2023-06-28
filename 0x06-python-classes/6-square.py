@@ -128,10 +128,6 @@ class Square:
         else:
             for i in range(self.__size):
                 while m < self.__position[0]:
-                    print(' ', end='')
-                    m += 1
-                m = 0
-                while m < self.__position[1]:
                     if not self.__position[1] > 0:
                         print(' ', end='')
                     m += 1
