@@ -12,7 +12,7 @@
 class Square:
     """create a private attribute
 
-    Arg:
+    Args:
         size(int): this is the size of the square
 
     Attributes:
