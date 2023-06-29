@@ -118,7 +118,7 @@ class Square:
         """ Str print
 
         """
-        my_print()
+        self.my_print()
 
     def my_print(self):
 
