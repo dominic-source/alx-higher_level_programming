@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import dis
+
 """Module to implement a magic class dissassembly
 
 """
@@ -42,6 +42,5 @@ class MagicClass:
         Here is the circumference of the circle
 
         """
-        return ((2 * math(pi)) * self.__radius)
 
-dis.dis(MagicClass)
+        return ((2 * math(pi)) * self.__radius)
