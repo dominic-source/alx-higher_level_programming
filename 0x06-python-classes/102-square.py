@@ -5,7 +5,7 @@
 It has the a square class with a private instance attribute
 
 Example:
-    $./3-square.py
+    $./4-square.py
 
 """
 
@@ -35,10 +35,34 @@ class Square:
 
         """
         self.__size = size
-        if not isinstance(self.__size, int):
+
+    @property
+    def size(self):
+
+        """retrieve the data
+
+        This method will retrieve data from the class
+
+        """
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+
+        """Set the size of the object
+
+        This method will set the size of the square
+
+        Args:
+            value (int): the value of size
+
+        """
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if self.__size < 0:
+        elif self.__size < 0:
             raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
 
     def area(self):
 
