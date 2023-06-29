@@ -33,7 +33,7 @@ class MagicClass:
 
         """
 
-        return (self.__radius ** 2) * math(pi)
+        return float((self.__radius ** 2) * math(pi))
 
     def circumference(self):
 
@@ -43,4 +43,4 @@ class MagicClass:
 
         """
 
-        return ((2 * math(pi)) * self.__radius)
+        return float(((2 * math(pi)) * self.__radius))
