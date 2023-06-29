@@ -114,6 +114,12 @@ class Square:
 
         return self.__size * self.__size
 
+    def __str__(self):
+        """ Str print
+
+        """
+        my_print()
+
     def my_print(self):
 
         """Print the # size in square
@@ -126,7 +132,7 @@ class Square:
             print("")
         else:
             for y in range(self.__position[1]):
-                print("")
+                print(" ", end='')
             for i in range(self.__size):
                 for m in range(self.__position[0]):
                     print(" ", end='')
