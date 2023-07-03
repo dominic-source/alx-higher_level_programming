@@ -66,4 +66,18 @@ class Rectangle:
 
         if self.height == 0 or self.width == 0:
             return 0
-        return (2 * (self.__height + self.__width)
+        return (2 * (self.__height + self.__width))
+
+    def __str__(self):
+
+        """string representation of the class"""
+
+        if self.height == 0 or self.width == 0:
+            return ""
+        mystring = ""
+
+        for i in range(self.height):
+            for m in range(self.width):
+                mystring += '#'
+            mystring += '\n'
+        return mystring
