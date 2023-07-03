@@ -28,7 +28,7 @@ TypeError: div must be a number
 Traceback (most recent call last):
 ... # doctest: +ELLIPSIS
 TypeError: matrix must be a matrix (list of lists) of integers/floats
- 
+
 >>> matrix_divided(matrix, True)
 [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [1.0, 2.0, 3.0]]
 

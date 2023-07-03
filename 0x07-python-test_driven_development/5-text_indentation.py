@@ -4,6 +4,7 @@
 
 """
 
+
 def text_indentation(text):
 
     """Indent text with the text indentation function"""
@@ -21,10 +22,10 @@ def text_indentation(text):
             flag = 0
             if i in ".?:":
                 flag = 1
-                print(text[start : end], end='')
+                print(text[start:end], end='')
                 start = end
                 print()
                 print()
             elif end == len(text):
-                strm = text[start : -1]
+                strm = text[start:-1]
                 print(strm.strip(), end='')

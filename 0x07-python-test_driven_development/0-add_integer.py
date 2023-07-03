@@ -10,6 +10,7 @@ Args:
 
 """
 
+
 def add_integer(a, b=98):
 
     """Add two integers and returns the sum"""
