@@ -1,0 +1,31 @@
+The ``text_indentation`` module
+===============================
+Using ``text_indentation``
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation(None)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: text must be a string
+
+>>> text_indentation(4)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: text must be a string
+
+>>> text_indentation(["janescence"])
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: text must be a string
+
+>>> text_indentation("   i am a boy. There is a God: I will server you lord    ")
+i am a boy.
+<BLANKLINE>
+There is a God:
+<BLANKLINE>
+I will server you lord
+>>> text_indentation(" God is great.Yes he is great:")
+God is great.
+<BLANKLINE>
+Yes he is great:
+<BLANKLINE>

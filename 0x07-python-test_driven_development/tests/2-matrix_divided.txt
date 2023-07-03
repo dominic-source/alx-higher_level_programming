@@ -1,0 +1,101 @@
+The test the matrix module
+=========================
+
+Using ``matrix_divided``
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix = [ # doctest: +NORMALIZE_WHITESPACE
+... [1, 2, 3],
+... [4, 5, 6],
+... [1, 2, 3]
+... ]
+>>> matrix_divided(matrix, "5")
+Traceback (most recent call last):
+... # doctest: +ELLIPSIS
+TypeError: div must be a number
+
+>>> matrix_divided(matrix, [4])
+Traceback (most recent call last):
+... # doctest: +ELLIPSIS
+TypeError: div must be a number
+
+>>> matrix_divided(matrix, (5, 4))
+Traceback (most recent call last):
+... # doctest: +ELLIPSIS
+TypeError: div must be a number
+
+>>> matrix_divided(None, 2)
+Traceback (most recent call last):
+... # doctest: +ELLIPSIS
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+ 
+>>> matrix_divided(matrix, True)
+[[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [1.0, 2.0, 3.0]]
+
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+... # doctest: +ELLIPSIS
+ZeroDivisionError: division by zero
+
+>>> div = 4
+>>> matrix_divided(matrix, 3) # doctest: +NORMALIZE_WHITESPACE
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [0.33, 0.67, 1.0]]
+
+>>> matrix1 = [ # doctest: +NORMALIZE_WHITESPACE
+... [1, 2, 3],
+... [6, -5, 'e'],
+... [3, 9, -1]
+... ]
+>>> matrix_divided(matrix1, div)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix2 = [ # doctest: +NORMALIZE_WHITESPACE
+... [1, 2, 3],
+... [6, -5, [1]],
+... [3, 9, -1]
+... ]
+>>> matrix_divided(matrix2, div)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix3 = [ # doctest: +NORMALIZE_WHITESPACE
+... [1, 2, 3],
+... [6, -5, 5],
+... [3, 9]
+... ]
+>>> matrix_divided(matrix3, div)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: Each row of the matrix must have the same size
+
+>>> matrix4 = [ # doctest: +NORMALIZE_WHITESPACE
+... [1, 2],
+... [6, -5],
+... [3, 9, -1]
+... ]
+>>> matrix_divided(matrix4, div)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: Each row of the matrix must have the same size
+
+>>> matrix5 = [ # doctest: +NORMALIZE_WHITESPACE
+... [1, 2],
+... [3, 9, -1]
+... ]
+>>> matrix_divided(matrix4, div)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: Each row of the matrix must have the same size
+
+>>> matrix_divided("trap", div)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([[1, 3], ["trap", 8]], div)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: matrix must be a matrix (list of lists) of integers/floats

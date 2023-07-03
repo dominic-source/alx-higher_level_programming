@@ -1,0 +1,39 @@
+The ``say my name`` module
+=========================
+
+Using ``say_my_name``
+---------------------
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name(None, None)
+Traceback (most recent call last):
+... +ELLIPSIS
+TypeError: first_name must be a string
+
+>>> say_my_name("bode", None)
+Traceback (most recent call last):
+... +ELLIPSIS
+TypeError: last_name must be a string
+
+>>> say_my_name("bode", 5)
+Traceback (most recent call last):
+... +ELLIPSIS
+TypeError: last_name must be a string
+
+>>> say_my_name(6, "Nigeria")
+Traceback (most recent call last):
+... +ELLIPSIS
+TypeError: first_name must be a string
+
+>>> say_my_name("bode", "Nigeria")
+My name is bode Nigeria
+
+>>> say_my_name("bode", ['Nigeria'])
+Traceback (most recent call last):
+... +ELLIPSIS
+TypeError: last_name must be a string
+
+>>> say_my_name(("Nigeria", 5), "bode")
+Traceback (most recent call last):
+... +ELLIPSIS
+TypeError: first_name must be a string
