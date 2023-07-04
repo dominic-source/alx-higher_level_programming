@@ -21,6 +21,6 @@ class LockedClass:
 
         if nm == "first_name":
             object.__setattr__(self, nm, value)
-        elif nm != "first_name":
-            cl = "LockedClass"
+        else:
+            cl = self.__class__.__name__
             raise AttributeError(f"'{cl}' object has no attribute '{nm}'")
