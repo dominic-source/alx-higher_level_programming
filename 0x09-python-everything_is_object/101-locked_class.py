@@ -22,11 +22,3 @@ class LockedClass:
         if nm != "first_name":
             cl = "LockedClass"
             raise AttributeError(f"'{cl}' object has no attribute '{nm}'")
-
-    def __delattr__(self, nm):
-
-        """delete attribute method which is also when deleting attribute"""
-
-        if nm != "first_name":
-            cl = "LockedClass"
-            raise AttributeError(f"'{cl}' object has no attribute '{nm}'")
