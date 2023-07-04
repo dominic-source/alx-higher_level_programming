@@ -13,10 +13,14 @@ class LockedClass:
 
         """init function"""
 
+        pass
+
     def __setattr__(self, nm, value):
 
         """Set Attribute method which is always called"""
 
-        if nm != "first_name":
+        if nm == "first_name":
+            object.__setattr__(self, nm, value)
+        elif nm != "first_name":
             cl = "LockedClass"
             raise AttributeError(f"'{cl}' object has no attribute '{nm}'")
