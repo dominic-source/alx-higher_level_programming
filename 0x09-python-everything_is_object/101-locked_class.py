@@ -9,7 +9,7 @@ class LockedClass:
 
     """A locked class"""
 
-    __allowed_attribute = {"first_name"}
+    allowed_attribute = {"first_name"}
 
     def __init__(self):
 
@@ -21,7 +21,7 @@ class LockedClass:
 
         """Set Attribute method which is always called"""
 
-        if nm not in self.__allowed_attribute:
+        if nm not in self.allowed_attribute:
             cl = self.__class__.__name__
             raise AttributeError(f"'{cl}' object has no attribute '{nm}'")
         else:
