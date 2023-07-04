@@ -11,15 +11,16 @@ class LockedClass:
 
     cn = 'LockedClass'
 
-    def __setattr__(self, name, value):
+    def __setattr__(self, nm, value):
 
         """Set Attribute method which is always called"""
 
-        if name != "first_name":
-            raise AttributeError(f"'{self.cn}' object has no attribute {name}")
+        if nm != "first_name":
+            raise AttributeError(f"'{self.cn}' object has no attribute '{nm}'")
 
-    def __delattr__(self, name):
+    def __delattr__(self, nm):
 
         """delete attribute method which is also when deleting attribute"""
-        if name != "first_name":
-            raise AttributeError(f"'{self.cn}' object has no attribute {name}")
+
+        if nm != "first_name":
+            raise AttributeError(f"'{self.cn}' object has no attribute '{nm}'")
