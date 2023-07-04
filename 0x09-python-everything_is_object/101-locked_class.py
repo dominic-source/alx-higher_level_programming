@@ -9,6 +9,10 @@ class LockedClass:
 
     """A locked class"""
 
+    def __init__(self):
+
+        """init function"""
+
     def __setattr__(self, nm, value):
 
         """Set Attribute method which is always called"""
