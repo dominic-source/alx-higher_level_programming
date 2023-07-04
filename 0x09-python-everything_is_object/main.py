@@ -5,6 +5,6 @@ lc = LockedClass()
 lc.first_name = "John"
 
 try:
-    lc.last_name = "Snow"
+    lc.First_Name = "Snow"
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))

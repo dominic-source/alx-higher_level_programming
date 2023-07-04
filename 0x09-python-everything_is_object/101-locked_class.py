@@ -15,12 +15,12 @@ class LockedClass:
 
         """Set Attribute method which is always called"""
 
-        if nm != "first_name":
+        if nm.lower() != "first_name":
             raise AttributeError(f"'{self.cn}' object has no attribute '{nm}'")
 
     def __delattr__(self, nm):
 
         """delete attribute method which is also when deleting attribute"""
 
-        if nm != "first_name":
+        if nm.lower() != "first_name":
             raise AttributeError(f"'{self.cn}' object has no attribute '{nm}'")
