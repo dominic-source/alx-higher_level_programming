@@ -55,14 +55,18 @@ class Node:
     @property
     def next_node(self):
 
-        """Get the next node"""
+        """Get the next node
+
+        """
 
         return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
 
-        """Set the next node"""
+        """Set the next node
+
+        """
 
         if value is None:
             pass
@@ -78,12 +82,16 @@ class SinglyLinkedList():
     """
 
     def __init__(self):
-        """initialization"""
+        """initialization function
+
+        """
         self.__head = None
 
     def sorted_insert(self, value):
 
-        """Insert the linked list in a sorted order"""
+        """Insert the linked list in a sorted order
+
+        """
 
         if (self.__head is None) or value < self.__head.data:
             self.__head = Node(value, self.__head)
@@ -102,7 +110,9 @@ class SinglyLinkedList():
 
     def __str__(self):
 
-        """String representation of the class"""
+        """String representation of the class
+
+        """
 
         current = self.__head
         mstr = ""
@@ -112,4 +122,3 @@ class SinglyLinkedList():
             current = current.next_node
 
         return mstr[:-1]
-
