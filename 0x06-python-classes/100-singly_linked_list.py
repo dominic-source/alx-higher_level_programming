@@ -10,7 +10,7 @@ Example:
 
 class Node:
 
-    """The node class
+    """The node class for create more nodes
 
 
     """
@@ -57,6 +57,8 @@ class Node:
 
         """Get the next node
 
+        This will get the node
+
         """
 
         return self.__next_node
@@ -65,6 +67,8 @@ class Node:
     def next_node(self, value):
 
         """Set the next node
+
+        This will set the next node
 
         """
 
@@ -77,12 +81,14 @@ class Node:
 
 class SinglyLinkedList():
 
-    """A singly linked class
+    """A singly linked class 
+
+    This is the single linked list which will create and link nodes
 
     """
 
     def __init__(self):
-        """initialization function
+        """initialization the singly linked list function
 
         """
         self.__head = None
