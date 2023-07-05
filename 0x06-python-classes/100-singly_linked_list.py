@@ -12,6 +12,7 @@ class Node:
 
     """The node class for create more nodes
 
+    This is the class method
 
     """
 
@@ -88,7 +89,10 @@ class SinglyLinkedList():
     """
 
     def __init__(self):
+
         """initialization the singly linked list function
+
+        The init method
 
         """
         self.__head = None
@@ -97,6 +101,7 @@ class SinglyLinkedList():
 
         """Insert the linked list in a sorted order
 
+        This will sort and insert the data at the given position
         """
 
         if (self.__head is None) or value < self.__head.data:
@@ -117,6 +122,8 @@ class SinglyLinkedList():
     def __str__(self):
 
         """String representation of the class
+
+        This will print the string representation of the class
 
         """
 
