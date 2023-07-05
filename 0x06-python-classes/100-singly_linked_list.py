@@ -81,7 +81,7 @@ class Node:
 
 class SinglyLinkedList():
 
-    """A singly linked class 
+    """A singly linked class
 
     This is the single linked list which will create and link nodes
 
