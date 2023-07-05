@@ -21,5 +21,5 @@ def text_indentation(text=None):
             print()
             print()
         elif end == len(text):
-                strm = text[start:]
-                print(strm.strip(), end='')
+             strm = text[start:]
+             print(strm.strip(), end='')
