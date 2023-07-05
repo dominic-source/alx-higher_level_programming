@@ -7,11 +7,11 @@ This module wil print the square of '#'
 """
 
 
-def print_square(size):
+def print_square(size=None):
 
     """Print a square of #"""
 
-    if not isinstance(size, int):
+    if (size is None) or not isinstance(size, int):
         raise TypeError("size must be an integer")
     if (size < 0) and isinstance(size, float):
         raise TypeError("size must be an integer")
