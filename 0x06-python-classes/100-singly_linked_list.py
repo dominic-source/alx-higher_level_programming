@@ -106,10 +106,9 @@ class SinglyLinkedList():
 
         if (self.__head is None) or value < self.__head.data:
             self.__head = Node(value, self.__head)
-
         else:
             crt = self.__head
-            while(crt.next_node is not None and crt.next_node.data <= value):
+            while (crt.next_node is not None and crt.next_node.data <= value):
                 crt = crt.next_node
 
             if crt.next_node is None:
