@@ -9,7 +9,7 @@ def inherits_from(obj, a_class):
 
     """inherits from another class
 
-    checks if the obj inherit directly of indirectly from a_class
+    checks if the obj inherit directly or indirectly from a_class
 
     """
 
