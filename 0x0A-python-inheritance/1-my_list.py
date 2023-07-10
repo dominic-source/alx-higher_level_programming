@@ -8,7 +8,7 @@ This module makes clear an understand of inheritance
 
 
 class MyList(list):
-    
+
     """MyList class to describe list object inheritance
 
     """
@@ -23,6 +23,7 @@ class MyList(list):
         """Print a sorted list of the list of object
 
         """
-        print(self.copy.sorted())
 
-
+        sortedme = self[:]
+        sortedme.sort()
+        print(sortedme)
