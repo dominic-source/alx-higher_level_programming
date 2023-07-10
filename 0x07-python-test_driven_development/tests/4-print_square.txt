@@ -45,3 +45,9 @@ ValueError: size must be >= 0
 ####
 ####
 ####
+
+>>> print_square()
+Traceback (most recent call last):
+... +ELLIPSIS
+TypeError: size must be an integer
+

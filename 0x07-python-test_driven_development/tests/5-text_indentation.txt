@@ -29,3 +29,6 @@ God is great.
 <BLANKLINE>
 Yes he is great:
 <BLANKLINE>
+
+>>> text_indentation("God is good always")
+God is good always

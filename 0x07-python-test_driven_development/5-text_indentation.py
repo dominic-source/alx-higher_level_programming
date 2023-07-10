@@ -5,27 +5,21 @@
 """
 
 
-def text_indentation(text):
+def text_indentation(text=None):
 
     """Indent text with the text indentation function"""
 
-    if not isinstance(text, str):
+    if (text is None) or not isinstance(text, str):
         raise TypeError("text must be a string")
     start = 0
-    flag = 1
     end = 0
     for i in text:
         end += 1
-        if (i == ' ') and (flag == 1):
-            start += 1
-        else:
-            flag = 0
-            if i in ".?:":
-                flag = 1
-                print(text[start:end], end='')
-                start = end
-                print()
-                print()
-            elif end == len(text):
-                strm = text[start:-1]
-                print(strm.strip(), end='')
+        if i in ".?:":
+            print(text[start:end].strip(), end='')
+            start = end
+            print()
+            print()
+        elif end == len(text):
+            strm = text[start:]
+            print(strm.strip(), end='')
