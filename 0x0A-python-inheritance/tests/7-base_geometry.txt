@@ -2,6 +2,8 @@ The base Geometry
 ==================
 
 Using ``BaseGeometry()``
+------------------------
+
 
 >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
 >>> bg = BaseGeometry()
@@ -26,3 +28,15 @@ Traceback (most recent call last):
 ValueError: chinedu must be greater than 0
 
 >>> bg.integer_validator("paul", 20)
+
+>>> bg.integer_validator("chinedu", True)
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: chinedu must be an integer
+
+>>> bg.integer_validator("chinedu", str(45))
+Traceback (most recent call last):
+... # doctest +ELLIPSIS
+TypeError: chinedu must be an integer
+
+>>> bg.integer_validator("chinedu", int("56"))
