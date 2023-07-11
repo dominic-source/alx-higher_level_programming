@@ -1,7 +1,16 @@
 #!/usr/bin/python3
-Rectangle = __import__('9-rectangle').Rectangle
+add_attribute = __import__('101-add_attribute').add_attribute
 
-r = Rectangle(3, 5)
+class MyClass():
+    pass
 
-print(r)
-print(r.area())
+mc = MyClass()
+add_attribute(mc, "name", "John")
+print(mc.name)
+
+try:
+    a = "My String"
+    add_attribute(a, "name", "Bob")
+    print(a.name)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
