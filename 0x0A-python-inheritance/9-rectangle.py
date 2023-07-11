@@ -9,6 +9,7 @@ Checks out a rectangle
 
 BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     """A class to practice inheritance
 
@@ -21,3 +22,19 @@ class Rectangle(BaseGeometry):
         self.integer_validator(height, height)
         self.__width = width
         self.__height = height
+
+    def area(self):
+
+        """Implement the area method
+
+        """
+
+        return self.__width * self.__height
+
+    def __str__(self):
+
+        """string representation of the data"""
+
+        string = "[Rectangle] " + str(self.__width) + '/' + str(self.__height)
+
+        return string
