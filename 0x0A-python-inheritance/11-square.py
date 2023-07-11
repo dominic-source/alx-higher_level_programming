@@ -15,3 +15,8 @@ class Square(Rectangle):
 
         self.integer_validator("size", size)
         super().__init__(size, size)
+
+    def __repr__(self):
+        """A representation of the class"""
+
+        return "Square"

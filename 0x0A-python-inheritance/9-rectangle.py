@@ -35,6 +35,13 @@ class Rectangle(BaseGeometry):
 
         """string representation of the data"""
 
-        string = "[Rectangle] " + str(self.__width) + '/' + str(self.__height)
+        string = "[" + self.__repr__() + "] " + str(self.__width)
+        string += '/' + str(self.__height)
 
         return string
+
+    def __repr__(self):
+
+        """a representation of the class"""
+
+        return "Rectangle"
