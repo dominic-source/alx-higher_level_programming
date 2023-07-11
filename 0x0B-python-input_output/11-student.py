@@ -36,6 +36,9 @@ class Student:
     def reload_from_json(self, json):
         """reload attributes from json"""
 
-        self.first_name = json["first_name"]
-        self.last_name = json["last_name"]
-        self.age = json["age"]
+        if hasattr(self, "first_name"):
+            self.first_name = json["first_name"]
+        if hasattr(self, "last_name"):
+            self.last_name = json["last_name"]
+        if hasattr(self, "age"):
+            self.age = json["age"]
