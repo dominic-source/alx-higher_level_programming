@@ -14,7 +14,5 @@ def append_after(filename="", search_string="", new_string=""):
     with open(filename, mode='w', encoding='utf-8') as f:
         for line in lines:
             f.write(line)
-            for i in line.split():
-                if search_string in i:
-                    f.write(new_string)
-                    break
+            if search_string in line:
+                f.write(new_string)
