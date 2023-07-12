@@ -33,7 +33,7 @@ def my_main():
         print("File size: {:d}".format(size))
         for k, v in sorted(status.items()):
             if v > 0:
-                print("{}: {:d}".format(k, v))
+                print("{}: {:d}".format(k, v), end='')
 
 
 my_main()
