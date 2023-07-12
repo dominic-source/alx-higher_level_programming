@@ -22,9 +22,10 @@ def my_main():
             try:
                 file_size = int(line_split[-1])
                 status_code = line_split[-2]
-                status[status_code] += 1
+                status[status_code] = status[status_code]
             except Exception:
                 continue
+            status[status_code] += 1
             size += file_size
             count += 1
             if count % 10 == 0:
