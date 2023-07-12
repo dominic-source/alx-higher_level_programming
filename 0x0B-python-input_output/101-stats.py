@@ -19,10 +19,12 @@ def my_main():
         for line in sys.stdin:
             line = line.strip()
             line_split = line.split()
-            file_size = int(line_split[-1])
-            status_code = line_split[-2]
-
-            status[status_code] += 1
+            try:
+                file_size = int(line_split[-1])
+                status_code = line_split[-2]
+                status[status_code] += 1
+            except Exception:
+                continue
             size += file_size
             count += 1
             if count % 10 == 0:
