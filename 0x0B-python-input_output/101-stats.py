@@ -28,11 +28,12 @@ def my_main():
                 print("File size: {:d}".format(int(size)))
                 for k, v in sorted(status.items()):
                     if int(v) > 0:
-                         print("{}: {:d}".format(k, int(v)))
+                        print("{}: {:d}".format(k, int(v)))
     except KeyboardInterrupt:
         print("File size: {:d}".format(int(size)))
         for k, v in sorted(status.items()):
             if int(v) > 0:
                 print("{}: {:d}".format(k, int(v)))
+
 
 my_main()
