@@ -14,6 +14,7 @@ def my_main():
               '403': 0, '404': 0, '405': 0, '500': 0}
     size = 0
     count = 0
+    string = ""
     try:
         for line in sys.stdin:
             line = line.strip()
@@ -30,10 +31,11 @@ def my_main():
                     if v > 0:
                         print("{}: {:d}".format(k, v))
     except KeyboardInterrupt:
-        print("File size: {:d}".format(size))
+        string += "File size: {:d}\n".format(size)
         for k, v in sorted(status.items()):
             if v > 0:
-                print("{}: {:d}".format(k, v), end='')
+                string += "{}: {:d}\n".format(k, v)
+        print(string[:-1])
 
 
 my_main()
