@@ -21,11 +21,11 @@ def my_main():
             line_split = line.split()
             try:
                 if len(line_split) != 9:
-                    raise Exception
+                    raise ValueError
                 file_size = int(line_split[-1])
                 status_code = line_split[-2]
                 status[status_code] = status[status_code]
-            except Exception:
+            except ValueError:
                 continue
             status[status_code] += 1
             size += file_size
