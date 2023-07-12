@@ -24,14 +24,13 @@ def my_main():
             status[status_code] = str(int(status[status_code]) + 1)
             size += int(file_size)
             count += 1
-            if count == 10:
+            if count % 10 == 0:
                 print("File size: {}\n".format(size), end='')
-                for k, v in status.items():
+                for k, v in sorted(status.items()):
                     if int(v) > 0:
                         print("{}: {}\n".format(k, v), end='')
-                count = 0
     except KeyboardInterrupt:
-        for k, v in status.items():
+        for k, v in sorted(status.items()):
             if int(v) > 0:
                 print("{}: {}".format(k, v), end='')
 
