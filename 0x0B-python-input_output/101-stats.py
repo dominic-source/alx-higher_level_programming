@@ -25,15 +25,15 @@ def my_main():
             size += int(file_size)
             count += 1
             if count == 10:
-                print("File size: {:d}".format(int(size)))
+                print("File size: {}\n".format(size), end='')
                 for k, v in status.items():
                     if int(v) > 0:
-                        print("{}: {}".format(k, v))
+                        print("{}: {}\n".format(k, v), end='')
                 count = 0
     except KeyboardInterrupt:
         for k, v in status.items():
             if int(v) > 0:
-                print("{}: {}".format(k, v))
+                print("{}: {}".format(k, v), end='')
 
 
 my_main()
