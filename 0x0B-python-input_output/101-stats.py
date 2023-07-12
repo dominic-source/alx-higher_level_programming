@@ -30,7 +30,9 @@ def my_main():
                 for k, v in sorted(status.items()):
                     if v > 0:
                         print("{}: {:d}".format(k, v))
-    except KeyboardInterrupt:
+                sys.stdout.flush()
+    finally:
+        sys.stdout.flush()
         string += "File size: {:d}\n".format(size)
         for k, v in sorted(status.items()):
             if v > 0:
