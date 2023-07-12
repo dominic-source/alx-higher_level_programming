@@ -20,6 +20,8 @@ def my_main():
             line = line.strip()
             line_split = line.split()
             try:
+                if len(line_split) != 9:
+                    raise Exception
                 file_size = int(line_split[-1])
                 status_code = line_split[-2]
                 status[status_code] = status[status_code]
