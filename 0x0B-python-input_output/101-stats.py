@@ -29,21 +29,16 @@ def my_main():
             line = line.strip()
             line_split = line.split()
             try:
-                if len(line_split) != 9:
-                    raise Exception
-                for i in line_split[0].split('.'):
-                    try:
-                        if not isinstance(int(i), int):
-                            raise Exception
-                    except Exception:
-                        raise Exception
                 file_size = int(line_split[-1])
                 status_code = line_split[-2]
                 if status_code in status:
                     status[status_code] += 1
                 else:
                     raise Exception
+            except ValueError:
+                continue
             except Exception:
+                size += file_size
                 continue
             size += file_size
             count += 1
