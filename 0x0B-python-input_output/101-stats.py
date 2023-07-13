@@ -14,7 +14,6 @@ def print_statistics(size, status):
     for k, v in sorted(status.items()):
         if v > 0:
             print("{}: {:d}".format(k, v))
-    sys.stdout.flush()
 
 
 def my_main():
@@ -30,6 +29,14 @@ def my_main():
             line = line.strip()
             line_split = line.split()
             try:
+                if len(line_split) != 9:
+                    raise Exception
+                for i in line_split[0].split('.'):
+                    try:
+                        if not isinstance(int(i), int):
+                            raise Exception
+                    except Exception:
+                        raise Exception
                 file_size = int(line_split[-1])
                 status_code = line_split[-2]
                 if status_code in status:
@@ -37,8 +44,6 @@ def my_main():
                 else:
                     raise Exception
             except Exception:
-                count += 1
-                size += file_size
                 continue
             size += file_size
             count += 1
