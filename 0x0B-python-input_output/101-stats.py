@@ -27,6 +27,7 @@ def my_main():
                 status[status_code] = status[status_code]
             except Exception:
                 count += 1
+                size += file_size
                 continue
             status[status_code] += 1
             size += file_size
