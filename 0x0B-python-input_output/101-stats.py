@@ -7,6 +7,16 @@
 import sys
 
 
+def print_statistics(size, status):
+    """Prints the statistics based on the current state"""
+
+    print("File size: {:d}".format(size))
+    for k, v in sorted(status.items()):
+        if v > 0:
+            print("{}: {:d}".format(k, v))
+    sys.stdout.flush()
+
+
 def my_main():
     """The function that will solve the problem"""
 
@@ -20,11 +30,12 @@ def my_main():
             line = line.strip()
             line_split = line.split()
             try:
-                if len(line_split) != 9:
-                    raise Exception
                 file_size = int(line_split[-1])
                 status_code = line_split[-2]
-                status[status_code] += 1
+                if status_code in status:
+                    status[status_code] += 1
+                else:
+                    raise Exception
             except Exception:
                 count += 1
                 size += file_size
@@ -32,18 +43,9 @@ def my_main():
             size += file_size
             count += 1
             if count % 10 == 0:
-                print("File size: {:d}".format(size))
-                for k, v in sorted(status.items()):
-                    if v > 0:
-                        print("{}: {:d}".format(k, v))
-                sys.stdout.flush()
+                print_statistics(size, status)
     finally:
-        sys.stdout.flush()
-        string += "File size: {:d}\n".format(size)
-        for k, v in sorted(status.items()):
-            if v > 0:
-                string += "{}: {:d}\n".format(k, v)
-        print(string[:-1])
+        print_statistics(size, status)
 
 
 my_main()
