@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""Module that has the base class for all other classes that will 
+"""Module that has the base class for all other classes that will
 inherit from it
 
 """
@@ -8,7 +8,7 @@ inherit from it
 
 class Base:
     """The base class named as Base for readability purposes"""
-    
+
     __nb_objects = 0
 
     def __init__(self, id=None):
