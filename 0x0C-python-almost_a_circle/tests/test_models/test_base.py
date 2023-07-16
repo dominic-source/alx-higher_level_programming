@@ -3,9 +3,9 @@ from models.base import Base
 
 """Test codes in this module"""
 
+
 class TestBaseModels(unittest.TestCase):
     """Test base models"""
-
 
     def test_base_id(self):
         """Test the base class"""
@@ -17,7 +17,7 @@ class TestBaseModels(unittest.TestCase):
         self.assertEqual(base2.id, -1)
         self.assertEqual(base3.id, 3)
         self.assertEqual(base4.id, 5.73)
-    
+
     def test_base_nb_objects(self):
         """Test the class object"""
 
@@ -63,4 +63,3 @@ class TestBaseModels(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-

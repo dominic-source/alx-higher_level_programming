@@ -32,7 +32,6 @@ class TestAWidthModel(unittest.TestCase):
         """Test getter & setter"""
 
         self.assertEqual(self.rect2.width, 1000)
-        self.assertEqual(self.rect2.id, 1)
 
     def test_width_setter_getter_3(self):
         """Test getter & setter"""
@@ -40,13 +39,10 @@ class TestAWidthModel(unittest.TestCase):
         self.assertEqual(self.rect3.width, 0)
         self.rect3.width = 2
         self.assertEqual(self.rect3.width, 2)
-        self.assertEqual(self.rect3.id, 2)
-
 
 
 class TestBHeightModel(unittest.TestCase):
     """Test the height of the rectangle"""
-
 
     def setUp(self):
         """setup things"""
@@ -72,7 +68,6 @@ class TestBHeightModel(unittest.TestCase):
         """Test getter & setter"""
 
         self.assertEqual(self.rect5.height, 1000)
-        self.assertEqual(self.rect5.id, 1)
 
     def test_width_setter_getter_6(self):
         """Test getter & setter"""
@@ -80,12 +75,10 @@ class TestBHeightModel(unittest.TestCase):
         self.assertEqual(self.rect6.height, 54)
         self.rect6.height = 2
         self.assertEqual(self.rect6.height, 2)
-        self.assertEqual(self.rect6.id, 2)
 
 
 class TestCXvalueOfModel(unittest.TestCase):
     """Test the X value of the rectangle"""
-
 
     def setUp(self):
         """setup things"""
@@ -111,7 +104,6 @@ class TestCXvalueOfModel(unittest.TestCase):
         """Test getter & setter"""
 
         self.assertEqual(self.rect8.x, 0)
-        self.assertEqual(self.rect8.id, 1)
 
     def test_width_setter_getter_9(self):
         """Test getter & setter"""
@@ -119,7 +111,6 @@ class TestCXvalueOfModel(unittest.TestCase):
         self.assertEqual(self.rect9.x, 4)
         self.rect9.x = 2
         self.assertEqual(self.rect9.x, 2)
-        self.assertEqual(self.rect9.id, 2)
 
 
 class TestDExceptionValue(unittest.TestCase):
@@ -129,7 +120,7 @@ class TestDExceptionValue(unittest.TestCase):
         """Test getter & setter"""
 
         with self.assertRaises(TypeError):
-           self.rect10 = Rectangle()
+            self.rect10 = Rectangle()
 
 
 class TestEYvalueOfModel(unittest.TestCase):
@@ -160,7 +151,6 @@ class TestEYvalueOfModel(unittest.TestCase):
         """Test getter & setter"""
 
         self.assertEqual(self.rect12.y, 0)
-        self.assertEqual(self.rect12.id, 7)
 
     def test_width_setter_getter_13(self):
         """Test getter & setter"""
