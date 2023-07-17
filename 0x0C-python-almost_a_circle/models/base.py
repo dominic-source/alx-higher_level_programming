@@ -61,7 +61,10 @@ class Base:
 
         if dictionary is None:
             return None
-        dummycls = cls(4, 5)
+        if cls.__name__ == "Square":
+            dummycls = cls(4)
+        else:
+            dummycls = cls(4, 5)
         dummycls.update(**dictionary)
         return dummycls
 
