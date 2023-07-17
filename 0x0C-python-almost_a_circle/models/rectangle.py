@@ -20,7 +20,7 @@ class Rectangle(Base):
 
     def __init__(self, width=None, height=None, x=0, y=0, id=None):
         """initialize attributes from arguments"""
-        
+
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         if width <= 0:
@@ -113,17 +113,18 @@ class Rectangle(Base):
 
     def area(self):
         """Returns the area of the rectangle"""
-    
+
         return self.width * self.height
-    
+
     def to_dictionary(self):
         """Dictionary representation of a rectangle"""
-        my_dict = {'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height, 'width': self.width}
+        my_dict = {'x': self.x, 'y': self.y, 'id': self.id,
+                   'height': self.height, 'width': self.width}
         return my_dict
 
     def display(self):
         """display characters for strings"""
-        
+
         for i in range(self.y):
             if self.y != 0:
                 print()
@@ -133,11 +134,13 @@ class Rectangle(Base):
             for m in range(self.width):
                 print('#', end='')
             print()
-    
+
     def __str__(self):
         """string representation"""
 
-        return "[{}] ({}) {}/{} - {}/{}".format(type(self).__name__, self.id, self.x, self.y, self.width, self.height)
+        return "[{}] ({}) {}/{} - {}/{}".format(type(self).__name__,
+                                                self.id, self.x, self.y,
+                                                self.width, self.height)
 
     def update(self, *args, **kwargs):
         """update the attribute of the class"""
@@ -165,4 +168,3 @@ class Rectangle(Base):
                 self.x = kwargs['x']
             if 'y' in kwargs:
                 self.y = kwargs['y']
-

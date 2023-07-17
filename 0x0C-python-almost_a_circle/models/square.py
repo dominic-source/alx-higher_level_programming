@@ -18,14 +18,14 @@ class Square(Rectangle):
     def size(self):
         """Get the size of the square"""
         return self.width
-    
+
     @size.setter
     def size(self, value):
         """Set the size of the square"""
 
         self.width = value
         self.height = value
-    
+
     def to_dictionary(self):
         """Dictionary representation of a rectangle"""
 
@@ -56,8 +56,8 @@ class Square(Rectangle):
             if 'y' in kwargs:
                 self.y = kwargs['y']
 
-    
     def __str__(self):
         """string representation"""
-        
-        return "[{}] ({}) {}/{} - {}".format(type(self).__name__, self.id, self.x, self.y, self.width)
+
+        return "[{}] ({}) {}/{} - {}".format(type(self).__name__, self.id,
+                                             self.x, self.y, self.width)
