@@ -25,7 +25,7 @@ class Base:
         """convert json to string"""
 
         if (list_dictionaries is None) or len(list_dictionaries) == 0:
-            return []
+            return "[]"
         else:
             string = json.dumps(list_dictionaries)
         return string
