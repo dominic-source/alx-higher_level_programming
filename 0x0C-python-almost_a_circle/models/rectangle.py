@@ -115,13 +115,54 @@ class Rectangle(Base):
         """Returns the area of the rectangle"""
     
         return self.width * self.height
+    
+    def to_dictionary(self):
+        """Dictionary representation of a rectangle"""
+        my_dict = {'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height, 'width': self.width}
+        return my_dict
 
     def display(self):
         """display characters for strings"""
         
-        for i in range(0, self.height):
-            for m in range(0, self.width):
+        for i in range(self.y):
+            if self.y != 0:
+                print()
+        for i in range(self.height):
+            for j in range(self.x):
+                print(" ", end='')
+            for m in range(self.width):
                 print('#', end='')
             print()
+    
+    def __str__(self):
+        """string representation"""
 
+        return "[{}] ({}) {}/{} - {}/{}".format(type(self).__name__, self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args, **kwargs):
+        """update the attribute of the class"""
+
+        if len(args) != 0:
+            for i in range(len(args)):
+                if i == 0:
+                    self.id = args[0]
+                elif i == 1:
+                    self.width = args[1]
+                elif i == 2:
+                    self.height = args[2]
+                elif i == 3:
+                    self.x = args[3]
+                elif i == 4:
+                    self.y = args[4]
+        elif len(kwargs) != 0:
+            if "id" in kwargs:
+                self.id = kwargs['id']
+            if "width" in kwargs:
+                self.width = kwargs['width']
+            if 'height' in kwargs:
+                self.height = kwargs['height']
+            if 'x' in kwargs:
+                self.x = kwargs['x']
+            if 'y' in kwargs:
+                self.y = kwargs['y']
 

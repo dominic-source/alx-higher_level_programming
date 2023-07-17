@@ -1,6 +1,8 @@
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
+from io import StringIO
+import sys
 
 """Test the rectangle model"""
 
@@ -394,32 +396,137 @@ class TestHDisplay(unittest.TestCase):
     def setUp(self):
         """Set up the display testing"""
 
-        self.dis = Rectangle(1, 1)
-        self.dis2 = Rectangle(2, 2)
+        self.dis1 = Rectangle(1, 1)
         self.dis3 = Rectangle(5, 5)
         self.dis4 = Rectangle(10, 10)
         self.dis5 = Rectangle(2, 7)
 
+        self.dis2 = Rectangle(4, 8, 32, 54, 9)
+        self.dis6 = Rectangle(1, 1, 1, 1, 1)
+        
+        self.dis7 = Rectangle(3, 5, 2, 1)
+        self.dis8 = Rectangle(4, 4, 1, 0)
+        self.dis9 = Rectangle(5, 3, 0, 4)
+
     def tearDown(self):
         """Tear down the display testing"""
 
-        del self.dis
-        del self.dis2
+        del self.dis1
         del self.dis3
         del self.dis4
         del self.dis5
+        del self.dis2
+        del self.dis6
+        del self.dis7
+        del self.dis8
+        del self.dis9
 
     def test_display(self):
         """Test the display method"""
 
         string = '##########\n##########\n##########\n##########\n##########\n'
-        string += '##########\n##########\n##########\n##########\n##########\n'
+        string += '##########\n##########\n##########\n##########\n##########'
 
-        self.assertEqual(self.dis.display(), '#\n')
-        self.assertEqual(self.dis2.dispaly(), '##\n##\n')
-        self.assertEqual(self.dis3.display(), '#####\n#####\n#####\n#####\n#####\n')
-        self.assertEqual(self.dis4.display(), string)
-        self.assertEqual(self.dis5.display(), '##\n##\n##\n##\n##\n##\n')
+        capture_output = StringIO()
+        sys.stdout = capture_output
+        self.dis4.display()
+        sys.stdout = sys.__stdout__
+        stdout_value = capture_output.getvalue()
+        self.assertEqual(stdout_value.strip(), string)
+
+    def test_Bdisplay(self):
+        """Test the display part B"""
+        
+        capture_output = StringIO()
+        sys.stdout = capture_output
+        self.dis1.display()
+        sys.stdout = sys.__stdout__
+        stdout_value = capture_output.getvalue()
+        self.assertEqual(stdout_value.strip(), '#')
+
+    def test_Cdisplay(self):
+        """Test the display part C"""
+        
+        capture_output = StringIO()
+        sys.stdout = capture_output
+        self.dis3.display()
+        sys.stdout = sys.__stdout__
+        stdout_value = capture_output.getvalue()
+        self.assertEqual(stdout_value.strip(), '#####\n#####\n#####\n#####\n#####')
+    
+    def test_Ddisplay(self):
+        """Test the display part D"""
+
+        capture_output = StringIO()
+        sys.stdout = capture_output
+        self.dis5.display()
+        sys.stdout = sys.__stdout__
+        stdout_value = capture_output.getvalue()
+        self.assertEqual(stdout_value.strip(), '##\n##\n##\n##\n##\n##\n##')
+
+    def test_Estr_update(self):
+        """Test the display part E"""
+
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (9) 32/54 - 4/8")
+        self.dis2.update(89)
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (89) 32/54 - 4/8")
+        self.dis2.update(34, 45)
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (34) 32/54 - 45/8")
+        self.dis2.update(2, 9, 1)
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (2) 32/54 - 9/1")
+        self.assertEqual(self.dis4.__str__(), "[Rectangle] (87) 0/0 - 10/10")
+        self.dis4.update(5, 10, 4, 9)
+        self.assertEqual(self.dis4.__str__(), "[Rectangle] (5) 9/0 - 10/4")
+        self.dis4.update(2, 11, 4, 10, 450)
+        self.assertEqual(self.dis4.__str__(), "[Rectangle] (2) 10/450 - 11/4")
+        self.assertEqual(self.dis6.__str__(), "[Rectangle] (1) 1/1 - 1/1")
+
+    def test_Estr_update_2(self):
+        """Test the display part E"""
+
+        self.dis2.update(id=89)
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (89) 32/54 - 4/8")
+        self.dis2.update(x=34, y=45)
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (89) 34/45 - 4/8")
+        self.dis2.update(width=2, height=9, x=1)
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (89) 1/45 - 2/9")
+        self.dis2.update(5, 10, id=4, width=9)
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (5) 1/45 - 10/9")
+        self.dis2.update(y=2, width=11, height=4, x=10, id=450)
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (450) 10/2 - 11/4")
+        self.dis2.update(y=2, width=12)
+        self.assertEqual(self.dis2.__str__(), "[Rectangle] (450) 10/2 - 12/4")
+
+    def test_Fdisplay(self):
+        """Test the display part F"""
+
+        capture_output = StringIO()
+        sys.stdout = capture_output
+        self.dis7.display()
+        sys.stdout = sys.__stdout__
+        stdout_value = capture_output.getvalue()
+        self.assertEqual(stdout_value.strip(), '###\n  ###\n  ###\n  ###\n  ###')
+    
+    def test_Gdisplay(self):
+        """Test the display part G"""
+
+        capture_output = StringIO()
+        sys.stdout = capture_output
+        self.dis8.display()
+        sys.stdout = sys.__stdout__
+        stdout_value = capture_output.getvalue()
+        self.assertEqual(stdout_value.strip(), '####\n ####\n ####\n ####')
+
+    def test_Hdisplay(self):
+        """Test the display part H"""
+
+        capture_output = StringIO()
+        sys.stdout = capture_output
+        self.dis9.display()
+        sys.stdout = sys.__stdout__
+        stdout_value = capture_output.getvalue()
+        self.assertEqual(stdout_value.strip(), '#####\n#####\n#####')
+
 
 
 if __name__ == '__main__':
