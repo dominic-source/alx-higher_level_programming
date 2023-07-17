@@ -59,7 +59,7 @@ class Base:
     def create(cls, **dictionary):
         """create a dictionary"""
 
-        if **dictionary is None:
+        if dictionary is None:
             return None
         dummycls = cls(4, 5)
         dummycls.update(**dictionary)
