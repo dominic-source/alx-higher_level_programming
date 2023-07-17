@@ -5,6 +5,7 @@ inherit from it
 
 """
 import json
+import csv
 
 
 class Base:
@@ -81,4 +82,40 @@ class Base:
             return new_list
         for i in jsonvalue:
             new_list.append(cls.create(**i))
+        return new_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save file to csv"""
+
+        new_list = []
+        if list_objs is not None:
+            for i in list_objs:
+                new_list.append(i.to_dictionary())
+            fieldnames = list(new_list[0].keys())
+
+        clasname = cls.__name__ + '.csv'
+
+        with open(clasname, 'w', newline='') as file2:
+            writer = csv.DictWriter(file2, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(new_list)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load csv file """
+
+        new_list = []
+        clasname = cls.__name__ + '.csv'
+
+        try:
+            with open(clasname, 'r') as file3:
+                reader = csv.DictReader(file3)
+                for row in reader:
+                    for i in row:
+                        row[i] = int(row[i])
+                    new_list.append(cls.create(**row))
+        except FileNotFoundError:
+            return new_list
+
         return new_list
