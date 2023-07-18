@@ -6,6 +6,8 @@ inherit from it
 """
 import json
 import csv
+import turtle
+import random
 
 
 class Base:
@@ -119,3 +121,82 @@ class Base:
             return new_list
 
         return new_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """draw graphics in python"""
+
+        colors = ["red", "blue", "green", "indigo",
+                  "black", "pink", "purple", "orange", "brown"]
+        count = 0
+        screen = turtle.Screen()
+        for rect in list_rectangles:
+            turt = turtle.Turtle()
+            values = rect.to_dictionary()
+            count += 1
+
+            # Select colors
+            turt.color(random.choice(colors), random.choice(colors))
+
+            # Pen up and position the shape
+            turt.pu()
+            turt.goto(values["x"], values["y"])
+            turt.pd()
+
+            # Draw the shape
+            turt.begin_fill()
+            turt.forward(values["width"])
+            turt.right(90)
+            turt.forward(values["height"])
+            turt.right(90)
+            turt.forward(values["width"])
+            turt.right(90)
+            turt.forward(values["height"])
+            turt.pu()
+            turt.end_fill()
+
+            # additions to make it more interesting
+            for i in range(5):
+                turt.goto(random.randint(-300, -100), random.randint(1, 200))
+                turt.pd()
+                turt.begin_fill()
+                turt.circle(20)
+                turt.color(random.choice(colors))
+                turt.end_fill()
+                turt.pu()
+
+        for squa in list_squares:
+            turt2 = turtle.Turtle()
+            values = squa.to_dictionary()
+            count += 1
+
+            # Select colors
+            turt.color(random.choice(colors), random.choice(colors))
+
+            # Pen up and position the shape
+            turt.pu()
+            turt.goto(values["x"], values["y"])
+            turt.pd()
+
+            # Draw the shape
+            turt.begin_fill()
+            turt.forward(values["size"])
+            turt.right(90)
+            turt.forward(values["size"])
+            turt.right(90)
+            turt.forward(values["size"])
+            turt.right(90)
+            turt.forward(values["size"])
+            turt.pu()
+            turt.end_fill()
+
+            # additions to make it more interesting
+            for i in range(5):
+                turt.goto(random.randint(100, 300), random.randint(-300, -200))
+                turt.pd()
+                turt.begin_fill()
+                turt.circle(20)
+                turt.color(random.choice(colors))
+                turt.end_fill()
+                turt.pu()
+        turtle.done()
