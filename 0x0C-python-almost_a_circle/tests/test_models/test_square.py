@@ -9,7 +9,7 @@ class TestAsquareclass(unittest.TestCase):
     """This class will test the square class"""
 
     def setUp(self):
-            """Set up the square class"""
+        """Set up the square class"""
         self.square1 = Square(4, 6)
         self.square2 = Square(2, 2, 5)
         self.square3 = Square(5)
@@ -68,7 +68,7 @@ class TestBsquareInheritance(unittest.TestCase):
         """Test instance"""
 
         rect = Square(4, 5, 6)
-        self.assertFalse(isinstance(rect, Rectangle))
+        self.assertTrue(isinstance(rect, Rectangle))
         self.assertTrue(isinstance(rect, Base))
 
 
@@ -224,4 +224,3 @@ class TestEDictionary(unittest.TestCase):
         self.assertEqual(value['size'], 10)
         self.assertEqual(value['x'], 5)
         self.assertEqual(value['y'], 3)
-

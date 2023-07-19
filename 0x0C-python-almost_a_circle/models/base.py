@@ -122,6 +122,7 @@ class Base:
 
         return new_list
 
+
     @staticmethod
     def draw(list_rectangles, list_squares):
         """draw graphics in python"""

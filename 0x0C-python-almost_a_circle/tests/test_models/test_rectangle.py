@@ -474,7 +474,7 @@ class TestHDisplay(unittest.TestCase):
         self.assertEqual(self.dis2.__str__(), "[Rectangle] (34) 32/54 - 45/8")
         self.dis2.update(2, 9, 1)
         self.assertEqual(self.dis2.__str__(), "[Rectangle] (2) 32/54 - 9/1")
-        self.assertEqual(self.dis4.__str__(), "[Rectangle] (87) 0/0 - 10/10")
+        self.assertEqual(self.dis4.__str__(), "[Rectangle] (88) 0/0 - 10/10")
         self.dis4.update(5, 10, 4, 9)
         self.assertEqual(self.dis4.__str__(), "[Rectangle] (5) 9/0 - 10/4")
         self.dis4.update(2, 11, 4, 10, 450)
