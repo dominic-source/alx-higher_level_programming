@@ -528,6 +528,19 @@ class TestHDisplay(unittest.TestCase):
         self.assertEqual(stdout_value.strip(), '#####\n#####\n#####')
 
 
+class TestGDictionary(unittest.TestCase):
+    """Test dictionary conversion"""
+
+    def test_ATo_dictionary(self):
+        """Test the dictionary conversion method"""
+
+        val = Rectangle(4, 9, 2, 0)
+        value2 = val.to_dictionary()
+
+        self.assertEqual(value2['width'], 4)
+        self.assertEqual(value2['height'], 9)
+        self.assertEqual(value2['x'], 2)
+        self.assertEqual(value2['y'], 0)
 
 if __name__ == '__main__':
     
