@@ -474,7 +474,7 @@ class TestHDisplay(unittest.TestCase):
         self.assertEqual(self.dis2.__str__(), "[Rectangle] (34) 32/54 - 45/8")
         self.dis2.update(2, 9, 1)
         self.assertEqual(self.dis2.__str__(), "[Rectangle] (2) 32/54 - 9/1")
-        self.assertEqual(self.dis4.__str__(), "[Rectangle] (87) 0/0 - 10/10")
+        self.assertEqual(self.dis4.__str__(), "[Rectangle] (88) 0/0 - 10/10")
         self.dis4.update(5, 10, 4, 9)
         self.assertEqual(self.dis4.__str__(), "[Rectangle] (5) 9/0 - 10/4")
         self.dis4.update(2, 11, 4, 10, 450)
@@ -528,6 +528,19 @@ class TestHDisplay(unittest.TestCase):
         self.assertEqual(stdout_value.strip(), '#####\n#####\n#####')
 
 
+class TestGDictionary(unittest.TestCase):
+    """Test dictionary conversion"""
+
+    def test_ATo_dictionary(self):
+        """Test the dictionary conversion method"""
+
+        val = Rectangle(4, 9, 2, 0)
+        value2 = val.to_dictionary()
+
+        self.assertEqual(value2['width'], 4)
+        self.assertEqual(value2['height'], 9)
+        self.assertEqual(value2['x'], 2)
+        self.assertEqual(value2['y'], 0)
 
 if __name__ == '__main__':
     
