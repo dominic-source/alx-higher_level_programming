@@ -542,17 +542,48 @@ class TestGDictionary(unittest.TestCase):
         self.assertEqual(value2['x'], 2)
         self.assertEqual(value2['y'], 0)
 
+class TestHjsonstring(unittest.TestCase):
+    """Test Json String class"""
+
+    def test_AJsonString(self):
+        """test that confirms serilization to json string"""
+        
+        dictionary = {"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}
+        json_dict = Base.to_json_string([dictionary])
+        self.assertIsInstance(json_dict, str)
+        self.assertTrue('x' in json_dict)
+        self.assertTrue('y' in json_dict)
+        self.assertTrue('width' in json_dict)
+        self.assertTrue('height' in json_dict)
+        self.assertTrue('id' in json_dict)
+
+        dict_json = Rectangle.from_json_string(json_dict)
+
+        self.assertIsInstance(dict_json[0], dict)
+        self.assertEqual(dict_json[0]['height'], 7)
+        self.assertEqual(dict_json[0]['width'], 10)
+        self.assertEqual(dict_json[0]['x'], 2)
+        self.assertEqual(dict_json[0]['y'], 8)
+        
+    def test_BJsonString(self):
+        """Test that confirms serialization to json string"""
+
+        dict_json2 = Rectangle.from_json_string(None)
+        self.assertIsInstance(dict_json2, list)
+        self.assertEqual(len(dict_json2), 0)
+
+        json_dict3 = Base.to_json_string(None)
+        self.assertIsInstance(json_dict3, str)
+        self.assertTrue("[]" in json_dict3)
+        
+        dict_json2 = Rectangle.from_json_string('[]')
+        self.assertIsInstance(dict_json2, list)
+        self.assertEqual(len(dict_json2), 0)
+
+        json_dict3 = Base.to_json_string([])
+        self.assertIsInstance(json_dict3, str)
+        self.assertTrue("[]" in json_dict3)
+
+
 if __name__ == '__main__':
-    
-    suite_loader = unittest.TestLoader()
-
-    suite1 = suite_loader.loadTestsFromTestCase(TestAWidthModel)
-    suite2 = suite_loader.loadTestsFromTestCase(TestBHeightModel)
-    suite3 = suite_loader.loadTestsFromTestCase(TestCXvalueOfModel)
-    suite4 = suite_loader.loadTestsFromTestCase(TestDExceptionValue)
-    suite5 = suite_loader.loadTestsFromTestCase(TestEYvalueOfModel)
-    suite6 = suite_loader.loadTestsFromTestCase(TestFArea)
-    suite7 = suite_loader.loadTestsFromTestCase(TestGInheritance)
-
-    suite = unittest.TestSuite([suite1, suite2, suite3, suite4, suite5, suite6, suite7])
-    unittest.TestRunner(verbosity=2).run(suite)
+    unittest.main()

@@ -224,3 +224,48 @@ class TestEDictionary(unittest.TestCase):
         self.assertEqual(value['size'], 10)
         self.assertEqual(value['x'], 5)
         self.assertEqual(value['y'], 3)
+
+
+class TestFjsonstring(unittest.TestCase):
+    """Test Json String class"""
+
+    def test_AJsonString(self):
+        """test that confirms serilization to json string"""
+        
+        dictionary = {"x": 2, "size": 10, "id": 1, "y": 8}
+        json_dict = Base.to_json_string([dictionary])
+        self.assertIsInstance(json_dict, str)
+        self.assertTrue('x' in json_dict)
+        self.assertTrue('y' in json_dict)
+        self.assertTrue('size' in json_dict)
+        self.assertTrue('id' in json_dict)
+
+        dict_json = Square.from_json_string(json_dict)
+
+        self.assertIsInstance(dict_json[0], dict)
+        self.assertEqual(dict_json[0]['size'], 10)
+        self.assertEqual(dict_json[0]['x'], 2)
+        self.assertEqual(dict_json[0]['y'], 8)
+        
+    def test_BJsonString(self):
+        """Test that confirms serialization to json string"""
+
+        dict_json2 = Square.from_json_string(None)
+        self.assertIsInstance(dict_json2, list)
+        self.assertEqual(len(dict_json2), 0)
+
+        json_dict3 = Base.to_json_string(None)
+        self.assertIsInstance(json_dict3, str)
+        self.assertTrue("[]" in json_dict3)
+        
+        dict_json2 = Square.from_json_string('[]')
+        self.assertIsInstance(dict_json2, list)
+        self.assertEqual(len(dict_json2), 0)
+
+        json_dict3 = Base.to_json_string([])
+        self.assertIsInstance(json_dict3, str)
+        self.assertTrue("[]" in json_dict3)
+
+
+if __name__ == '__main__':
+    unittest.main()
