@@ -1,4 +1,0 @@
--- count the values
-SELECT id, COUNT(id)
-FROM first_table
-WHERE id = 89
