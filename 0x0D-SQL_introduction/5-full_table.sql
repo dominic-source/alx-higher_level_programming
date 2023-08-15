@@ -1,2 +1,4 @@
 -- show full description of a table from the database
-SHOW COLUMNS FROM first_table
+SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_DEFAULT, COLUMN_KEY
+FROM information_schema.COLUMNS
+WHERE TABLE_NAME = 'first_table';
