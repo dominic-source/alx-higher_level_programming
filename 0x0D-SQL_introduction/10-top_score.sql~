@@ -1,0 +1,4 @@
+-- display table base on specific requirement
+SELECT score, name
+FROM second_table
+ORDER BY DESC score;
