@@ -7,12 +7,15 @@ if (pros.length === 0 || pros.length === 1) {
   let i = 0;
   let j = 0;
   let k;
+  let val;
   for (k = 0; k < pros.length; k++) {
-    if (pros[k] > i) {
+    val = Number(pros[k]);
+    if (val > i) {
       j = i;
-      i = pros[k];
-    } else if (pros[k] > j) {
-      j = pros[k];
+      i = val;
+    } else if (val > j) {
+      j = val;
     }
   }
+  console.log(j);
 }
