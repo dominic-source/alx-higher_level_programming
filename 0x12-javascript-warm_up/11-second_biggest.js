@@ -3,8 +3,7 @@
 const pros = process.argv;
 if (pros.length === 0 || pros.length === 1) {
   console.log(0);
-}
-else {
+} else {
   let i = 0;
   let j = 0;
   let k;
