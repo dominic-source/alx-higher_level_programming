@@ -2,7 +2,7 @@
 
 const pros = Number(process.argv[2]);
 if (!pros) console.log('Missing size');
-else {
+else if (pros > 1) {
   let i = 0;
   let j = 0;
   while (i < pros) {
