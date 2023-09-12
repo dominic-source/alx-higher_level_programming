@@ -1,4 +1,2 @@
 #!/usr/bin/node
-module.exports = () => {
-  var myVar = 333;
-}
+global.myVar = 333;
