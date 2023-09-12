@@ -1,3 +1,4 @@
 #!/usr/bin/node
-var myVar = 333;
-module.exports = myVar;
+module.exports = () => {
+  var myVar = 333;
+}
