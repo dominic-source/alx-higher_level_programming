@@ -39,9 +39,7 @@ class Square extends Rectangle {
   }
 
   charPrint (c) {
-    let cha;
-    if (c) cha = c;
-    else cha = 'X';
+    const cha = c !== undefined ? c : 'X';
     let i;
     let j;
     for (i = 0; i < this.size; i++) {
