@@ -15,7 +15,8 @@ def print_state():
     username = sys.argv[1]
     port_n = 3306
 
-    db = MySQLdb.connect(host='localhost', user=username, passwd=password, db=database, port=port_n)
+    db = MySQLdb.connect(host='localhost', user=username,
+                         passwd=password, db=database, port=port_n)
 
     cur = db.cursor()
 
@@ -23,6 +24,7 @@ def print_state():
 
     for data in cur:
         print(data)
+
 
 if __name__ == '__main__':
     print_state()
