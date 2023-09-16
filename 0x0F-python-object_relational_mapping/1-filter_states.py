@@ -21,7 +21,7 @@ def name_states():
 
     cur.execute("SELECT * FROM states WHERE name LIKE 'N%'\
     ORDER BY states.id ASC")
-    for data in cur:
+    for data in cur.fetchall():
         print(data)
     db.commit()
     cur.close()
