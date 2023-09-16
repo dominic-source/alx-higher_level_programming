@@ -19,7 +19,7 @@ def name_states():
                          db=database, user=username)
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id")
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
     for data in cur:
         print(data)
 
