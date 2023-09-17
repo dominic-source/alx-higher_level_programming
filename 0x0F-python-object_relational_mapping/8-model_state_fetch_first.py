@@ -26,7 +26,7 @@ def name_states():
     engine = create_engine(url)
     session = Session(bind=engine)
     query = session.query(State.id, State.name).first()
-    if (query):
+    if (query is not None):
         print(str(query.id) + ": " + str(query.name))
     else:
         print()
