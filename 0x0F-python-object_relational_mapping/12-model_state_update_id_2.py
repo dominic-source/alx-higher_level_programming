@@ -23,10 +23,10 @@ def name_states():
                                                          database)
     engine = create_engine(url)
     session = Session(bind=engine)
-    new_user = State(name="Louisiana")
-    session.add(new_user)
-    print(new_user.id)
-    session.commit()
+    query = session.query(State).filter(State.id == 2).first()
+    if (query):
+        query.name = "New Mexico"
+        session.commit()
 
 
 if __name__ == "__main__":
