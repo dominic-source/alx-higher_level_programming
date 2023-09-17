@@ -24,11 +24,11 @@ def name_states():
                                                          password, port_n,
                                                          database)
     engine = create_engine(url)
-    Base.metadata.create_all(engine)
-    query = select([State.id, State.name]).order_by(State.id)
+#    Base.metadata.create_all(engine)
     session = Session(bind=engine)
-    for row in session.connection().execute(query).fetchall():
-        print(str(row[0]) + ": " + str(row[1]))
+    query = session.query(State.id, State.name).order_by(State.id)
+    for row in query:
+        print(str(row.id) + ": " + str(row.name))
 
 
 if __name__ == "__main__":
