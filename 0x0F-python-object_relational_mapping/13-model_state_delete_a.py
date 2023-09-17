@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""This module creates a function that will add a new state
+"""This module creates a function that will delete state
 
 """
 
@@ -23,9 +23,11 @@ def name_states():
                                                          database)
     engine = create_engine(url)
     session = Session(bind=engine)
-    update_state = State(id=2, name="New Mexico")
-    session.add(update_state)
-    session.commit()
+    query = session.query(State).filter(State.name.like("%a%")).all()
+    if (query):
+        for data in query:
+            session.delete(data)
+        session.commit()
 
 
 if __name__ == "__main__":
