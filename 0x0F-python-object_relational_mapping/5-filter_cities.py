@@ -27,8 +27,11 @@ def city_name():
     SELECT id FROM states WHERE BINARY name = %s LIMIT 1)\
     ORDER BY cities.id ASC", (state_name,))
 
-    for data in cur.fetchall():
-        print(data)
+    for idx, data in enumerate(cur.fetchall()):
+        if idx != 0:
+            print(', ', end='')
+        print(data[0], end='')
+    print()
     cur.close()
     db.close()
 
