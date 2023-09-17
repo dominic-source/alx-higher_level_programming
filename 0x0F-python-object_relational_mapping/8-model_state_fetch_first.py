@@ -24,11 +24,13 @@ def name_states():
                                                          password, port_n,
                                                          database)
     engine = create_engine(url)
+    Base.metadata.create_all(engine)
     session = Session(bind=engine)
     query = session.query(State.id, State.name).first()
     if (query is not None):
         print(str(query.id) + ": " + str(query.name))
     else:
+        print("Nothing")
         print()
 
 
