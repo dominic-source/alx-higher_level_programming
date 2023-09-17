@@ -31,7 +31,6 @@ def name_states():
         print(str(query.id) + ": " + str(query.name))
     else:
         print("Nothing")
-        print()
 
 
 if __name__ == "__main__":
