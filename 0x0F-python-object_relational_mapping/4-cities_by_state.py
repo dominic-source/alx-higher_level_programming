@@ -19,7 +19,11 @@ def city_name():
                          port=port_n, user=username)
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM cities ORDER BY cities.id ASC")
+    cur.execute("SELECT cities.id, cities.name, states.name\
+    FROM cities\
+    JOIN states\
+    WHERE states.id = cities.state_id\
+    ORDER BY cities.id ASC")
 
     for data in cur.fetchall():
         print(data)
