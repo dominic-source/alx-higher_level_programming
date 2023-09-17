@@ -20,7 +20,7 @@ def name_states():
                          db=database, user=username)
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name = '{}'\
+    cur.execute("SELECT * FROM states WHERE BINARY name = '{}'\
     ORDER BY states.id ASC".format(state_name))
     for data in cur.fetchall():
         print(data)
