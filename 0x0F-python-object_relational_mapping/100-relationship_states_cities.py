@@ -5,11 +5,11 @@
 """
 
 import sys
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, relationship
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
 from relationship_city import City
-from relationship_state import State
+from relationship_state import State, Base
+
 
 def name_states():
     """list state that is name"""
@@ -19,14 +19,21 @@ def name_states():
     port_n = 3306
 
     url = "mysql+mysqldb://{}:{}@localhost:{}/{}".format(username,
-                                                         password, port_n,
+                                                         password,
+                                                         port_n,
                                                          database)
+
     engine = create_engine(url)
-    session = Session(bind=engine)
-    Base = declarative_base()
     Base.metadata.create_all(engine)
-    ustate = State(name='California')
-    ustate.cities = [City(name="San Francisco")]
+    session = Session(bind=engine)
+
+    user_s = State(name='California')
+    user_c = City(name="San Francisco", state=user_s)
+
+    user_s.cities = [user_c]
+
+    session.add(user_s)
+    session.commit()
 
 
 if __name__ == "__main__":
