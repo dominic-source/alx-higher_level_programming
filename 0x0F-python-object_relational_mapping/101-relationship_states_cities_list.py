@@ -26,10 +26,9 @@ def name_states():
     engine = create_engine(url)
     Base.metadata.create_all(engine)
     session = Session(bind=engine)
-    for state in session.query(State).join(State.cities).order_by(
-            State.id).order_by(City.id).all():
-        string = "{}: {}".format(state.id, state.name)
-        print(string)
+    for state in session.query(State).order_by(State.id).all():
+        print("{}: {}".format(state.id, state.name))
+
         for city in state.cities:
             print("    {}: {}".format(city.id, city.name))
 
