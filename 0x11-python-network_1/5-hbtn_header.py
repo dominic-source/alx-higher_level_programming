@@ -11,7 +11,7 @@ import sys
 def urlfetch():
     url = sys.argv[1]
     res = requests.get(url)
-    obj = res.headers['X-Request-Id']
+    obj = res.headers.get('X-Request-Id')
     print(obj)
 
 
