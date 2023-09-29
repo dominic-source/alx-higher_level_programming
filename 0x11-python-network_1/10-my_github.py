@@ -15,7 +15,7 @@ def urlfetch():
                'Authorization': f'Bearer {password}'}
     url = f'https://api.github.com/users/{username}'
     res = requests.get(url, headers=headers)
-    print(res.json()['id'])
+    print(res.json().get('id'))
 
 
 if __name__ == '__main__':
