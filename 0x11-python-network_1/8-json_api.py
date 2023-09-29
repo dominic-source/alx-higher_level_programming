@@ -17,13 +17,13 @@ def urlfetch():
     ndat = {'q': val}
     res = requests.post(url, data=ndat)
     data = res.json()
-    if res.raise_for_status() is None:
+    if res.raise_for_status() is not None:
+        print('Not a valid JSON')
+    else:
         if data:
             print('[{}] {}'.format(data.get('id'), data.get('name')))
         else:
             print('No result')
-    else:
-        print('Not a valid JSON')
 
 
 if __name__ == '__main__':
