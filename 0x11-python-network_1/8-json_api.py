@@ -14,11 +14,10 @@ def urlfetch():
     else:
         val = sys.argv[1]
     url = 'http://0.0.0.0:5000/search_user'
-    ndat = {'g': val}
+    ndat = {'q': val}
     res = requests.post(url, data=ndat)
     try:
         data = res.json()
-        print(data)
         if data:
             print('[{}] {}'.format(data.get('id'), data.get('name')))
         else:
