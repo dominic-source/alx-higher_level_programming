@@ -16,13 +16,13 @@ def urlfetch():
     url = 'http://0.0.0.0:5000/search_user'
     ndat = {'q': val}
     res = requests.post(url, data=ndat)
-    try:
-        data = res.json()
+    data = res.json()
+    if res.raise_for_status() is None:
         if data:
             print('[{}] {}'.format(data.get('id'), data.get('name')))
         else:
             print('No result')
-    except requests.exceptions.JSONDecodeError:
+    else:
         print('Not a valid JSON')
 
 
